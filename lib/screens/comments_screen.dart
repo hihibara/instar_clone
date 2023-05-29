@@ -64,6 +64,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
             .snapshots(),
         builder: (context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+          print('Streambuilder');
+          print(snapshot.toString());
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
