@@ -9,6 +9,7 @@ import 'package:instagram_clone_flutter/responsive/web_screen_layout.dart';
 import 'package:instagram_clone_flutter/screens/login_screen.dart';
 import 'package:instagram_clone_flutter/utils/colors.dart';
 import 'package:provider/provider.dart';
+import './firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,14 +17,7 @@ void main() async {
   // initialise app based on platform- web or mobile
   if (true) {
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: 'AIzaSyB9llzk745qu0rGFfvbeu1ic97OrloZYc8',
-        appId: '1:274076043916:android:be8c53d22ee27939df49a9',
-        messagingSenderId: '274076043916',
-        projectId: 'sjm-instargram',
-        storageBucket: 'sjm-instargram.appspot.com',
-      ),
-    );
+        options: DefaultFirebaseOptions.currentPlatform);
   } else {
     await Firebase.initializeApp();
   }
